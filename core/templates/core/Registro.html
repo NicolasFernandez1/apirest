@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/sylis.css' %}">
+    <link rel="shortcur icon" href="{% static 'core/img/logo1.png' %}" type="image/x-icon"/>
+    
+    <title>Registro</title>
+    
+</head>
+
+<body>
+
+    <div class="contenedorS">
+        <form class="form" action="Registrar_usuario" id="formulario" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>COMPLETA LOS CAMPOS</legend>
+
+                <div class="contenedorDiv" >
+                    
+
+                        <div class="campo">
+                            <label for="">Nombre</label>
+                            <input type="text" name="Nombre" id="Nombre" class="Nombre" placeholder="Su Nombre" required pattern="[A-Za-z]{5,40}">
+                        </div>
+                        <div class="campo">
+                            <label for="">Edad</label>
+                            <input type="number" name="Edad" id="Edad" required="required" placeholder="Su Edad" min="18" max="99" title="Debe ser una edad valida" required/>
+                        </div>
+                        <div class="campo">
+                            <label for="">E-mail</label>
+                            <input type="email" name="Email"  id="Email"  class="Nombre" placeholder="Su E-mail" required>
+                        </div>
+                        <div class="campo">
+                            <label for="">Telefono</label>
+                            <input type="tel" name="Telefono" id="Telefono" class="Nombre" placeholder="Su Telefono" pattern="[0-9]{9}" required>
+                        </div>
+                        <div class="campo">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="Contraseña" id="Contraseña" class="Nombre" placeholder="Su Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="La clave debe contener a lo menos 8 caracteres, una mayuscula, una minuscula y un numero">
+                        </div>
+                        
+                        
+                        <div class="boton">
+                            <input type="submit" class="botonprincipal" value="Enviar"><br>
+                            <a href="consultarre-datos" class="btn btn-success">Consultar</a>
+                </div>
+                        <h3><a href="login.html">¿Ya Tienes Cuenta?</a></h3>
+                    </fieldset>
+
+                </form>
+
+           
+        
+    
+    </div>
+
+
+</body>
+
+</html>

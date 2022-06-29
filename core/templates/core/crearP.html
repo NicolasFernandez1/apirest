@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Creando Productos</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial;
+          }
+    
+        .error-control {
+            border: 1px solid red;
+        }
+    
+        label.error {
+            color: red;
+            width: 200px;
+            font-size: 0.8em;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }  
+    
+    </style>
+    
+    <script>
+       
+        $(function() 
+        {
+          $("#formulario").validate({
+               rules: {
+                      ids: "required",
+                      nombre: "required",
+                      asunto: "required",
+                      precio: "required",
+                      },   
+                      
+                 messages: 
+                  {
+                  ids: {
+                      required: 'Ingresa el id',
+                    },
+                  nombre: {
+                      required: 'Ingresa el nombre',
+                  },
+                  asunto:{
+                      required: 'Ingrese asunto',
+                      
+                  },
+                  precio:{
+                      required: 'Seleccione un precio',
+                  },
+                   
+              } 
+          }); 
+      });
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2>Creando Producto</h2>
+        </div>
+
+            <div class="row">
+                <form method="POST" action="#" id="formulario">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ crearformP.ids.label }}
+                        {{ crearformP.ids }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ crearformP.nombre.label }}
+                        {{ crearformP.nombre }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ crearformP.asunto.label }}
+                        {{ crearformP.asunto }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ crearformP.precio.label }}
+                        {{ crearformP.precio }}
+                    </div>
+
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-md">
+
+                            <input type="submit" class="btn btn-primary" value="Enviar">
+                            <input type="reset" class="btn btn-danger" value="Limpiar">
+                            
+                        </div>
+                    </div>
+					
+                </form>
+            </div>
+    </div>
+</body>
+</html>
