@@ -32,7 +32,9 @@ urlpatterns = [
     path('crearC.html',crearC,name="crearC"),
     path('modificarC.html/<id>',modificarC,name="modificarC"),
     path('eliminarC.html/<id>',eliminarC,name="eliminarC"),
-
-
-    
+    path ('Compra',Compra, name="Compra"),  
+    path('Compra_usuario',registrar_compra),
+    path ('consultarcompra-datos',consultarcompra_datos, name="consultarcompra_datos"),
+    path ('consultarcompra-registro/',consultarcompra_registro, name="consultarcompra_registro"),
+    path('form-mod-compra/<id>',form_mod_Compra, name="form"),
 ]

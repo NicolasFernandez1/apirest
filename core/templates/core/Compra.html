@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link href="{% static 'core/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet "> 
     <link rel="stylesheet" href="{% static 'core/css/Stilos.css' %}">
     <link rel="shortcur icon" href="{% static 'core/img/logo1.png' %}" type="image/x-icon"/>
@@ -46,29 +46,76 @@
         </li>  
         <li class="nav-item">
           <a class="nav-link" href="clientes.html">Clientes</a>
-        </li>  
+        </li>   
       </ul>
     </div>
    
   </nav>
   <br><br>
   
-  <div id="foto" class="p">
-    <img class="imgc" src="{% static 'core/img/identificadorhueso.jpg'%}" style="border-radius: 10px;"><br><br>
-    <h2>Identificador de hueso</h2>
-    <h4>Descripción: </h4>
-    <p>La identificación y registro de los perros y gatos es una de las estrategias principales para luchar <br>
-      contra el abandono e incrementar las devoluciones de aquellos animales que se han perdido, porque una <br>
-      parte de las mascotas que llegan a los refugios no corresponde a un abandono, sino a una pérdida.</p>
-    <p>Talla: S/M/L</p>
-    <p>Precio: $3.500 </p>
-    <a href="../home3.html"><br>
-      <button name="button" style="width: 10%;">Volver</button>
-  </a>&nbsp;
+  <form method="post" action="Compra_usuario" id = "registration">
+    {% csrf_token %}
+    <h1>Venta de productos</h1>
+    <label>Producto</label>
+        <div>
+            <select class = "form-control" name = "Producto" title="Seleciones una opcion" id="Producto" required>
+                <option value="" selected="" disabled="">Selecciones el producto</option>
+                <option>Bandana de bob esponja</option>
+                <option>Bandana de cereza</option>
+                <option>Arnes negro</option>
+                <option>Arnes flores</option>
+                <option>Identificador de patita</option>
+                <option>Identificador de hueso</option>
+                <option>Hueso pequeÃ±o</option>
+                <option>Hueso grande</option>
+                
+            </select>
+        </div>
+    <br/>
+    <label>Cantidad</label>
+        <div>
+            <select class = "form-control" name = "Cantidad" id="Cantidad" required>
+                <option value="" selected="" disabled="">Cuanto desea comprar?</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </select>
+        </div>
+    <br/>
+    <label>Tipo de Tarjeta</label>
+    <div>
+      <select class = "form-control" name = "Tipotarjeta" id="Tipotarjeta" required>
+          <option value="" selected="" disabled="">Seleccione su tarjeta</option>
+          <option>Debito</option>
+          <option>Credito</option>
+        </select>
+    </div>
+    <br>
+    <label for="">Numero de tarjeta:</label>
+    <input type = "tel" class = "form-control" name = "Numerotarjeta" id="Numerotarjeta"  maxlength="16" minlength="16" pattern="[0-9]+"  title="Deben ser 16 digitos solamente numeros" placeholder = "Ingrese el numero de su tarjeta" required/>
+    <br/>
+    <label for="">Fecha de expiracion:</label>
+    <input type = "month" class = "form-control" name = "Fecha_expira" placeholder = "" id = "Fecha_expira" required/>
+    <br/>
+    <label for="">CVV:</label>
+    <input type = "tel" class = "form-control" name = "Cvv" maxlength="3"  pattern="[0-9]+" minlength="3" title="Debe tener 3 digitos solamente numeros"  placeholder = "Los 3 numeros tras su tarjeta" id = "Cvv"  required/>
+    <br/>
+    <label>DirecciÃ³n</label>
+    <textarea class = "form-control" name = "Direccion" placeholder="Ingrese su Direccion" id="Direccion" required></textarea>
+    <br/>
+    <td>Precio:{{Producto.Precio}}</td>
+    <br>
     
-  </div>
-  <br>
-  
+    <button id="btn-validar" type = "submit" class = "btn btn-primary" >Comprar</button>
+    <button type = "reset" class = "btn btn-primary" >Limpiar</button>
+    </form>
+<br>
 <!-- Footer -->
 <footer id="foter" class="text-center text-lg-start bg-light text-muted">
   <!-- Section: Social media -->
@@ -121,7 +168,7 @@
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Tienda Online Puppies.cl
-          </h6>Puppies.cl es una tienda online enfocada en productos para el bienestar animal, realizamos envíos a todo Chile.</p>
+          </h6>Puppies.cl es una tienda online enfocada en productos para el bienestar animal, realizamos envÃ­os a todo Chile.</p>
         </div>
         <!-- Grid column -->
 
@@ -163,7 +210,7 @@
             <a href="#!" class="text-reset">Excelente servicio al cliente.</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">satisfacción Garantizada</a>
+            <a href="#!" class="text-reset">satisfacciÃ³n Garantizada</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -190,7 +237,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    Puppies © 2022 Copyright: Made with  All Rights Reserved.<br>
+    Puppies Â© 2022 Copyright: Made with  All Rights Reserved.<br>
+
   </div>
   <!-- Copyright -->
 </footer>

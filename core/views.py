@@ -136,4 +136,54 @@ def eliminarC(request, id):
     prod.delete()
     return redirect('mostrarC')
 
-    
+def Compra(request):
+
+
+
+    return render(request, 'core/Compra.html')
+
+def registrar_compra(request):
+    datos={
+
+    }
+    Producto=request.POST['Producto']
+    Cantidad=request.POST['Cantidad']
+    Tipotarjeta=request.POST['Tipotarjeta']
+    Numerotarjeta=request.POST['Numerotarjeta']
+    Fecha_expira=request.POST['Fecha_expira']
+    Cvv=request.POST['Cvv']
+    Direccion=request.POST['Direccion']
+
+    datos['mensaje']= "Registro completado"
+    codigo=Comprar.objects.create(Producto=Producto,Cantidad=Cantidad,Tipotarjeta=Tipotarjeta,Numerotarjeta=Numerotarjeta,Fecha_expira=Fecha_expira,Cvv=Cvv,Direccion=Direccion)
+    return render(request, 'core/Compra_completo.html')
+
+def consultarcompra_datos(request):
+
+    return render (request, 'core/consultarcompra-datos.html')
+
+def consultarcompra_registro(request):
+    datos={
+
+    }
+    Numerotarjeta=request.POST['Numerotarjeta']
+    codigo=Comprar.objects.filter(Numerotarjeta=Numerotarjeta)
+
+    if codigo:
+        datos['mensaje']= "Usuario encontrado correctamente"
+        Comprarx=Comprar.objects.get(Numerotarjeta=Numerotarjeta)
+        datos['Comprar']=Comprarx
+        return render (request, 'core/consultarcompra-registro.html',datos)
+    else:
+        datos['mensaje'] = "Usuario no encontrado"
+        return render (request, 'core/consultarcompra-registro.html',datos)
+
+def form_mod_Compra(request,id):
+    persona= Comprar.objects.get(Numerotarjeta=id)
+
+    datos= {
+        'form': ComprarForm(instance=persona),
+        'Persona':persona
+
+    }
+    return render(request, 'core/form_mod_compra.html',datos)

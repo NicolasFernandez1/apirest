@@ -63,3 +63,8 @@ class ProductoForm(ModelForm):
         model = Producto
         fields =['ids','nombre', 'asunto', 'precio']
 
+class ComprarForm(ModelForm):
+    class Meta:
+        model = Comprar
+        fields =['Producto', 'Cantidad','Tipotarjeta', 'Numerotarjeta', 'Fecha_expira','Cvv','Direccion']
+

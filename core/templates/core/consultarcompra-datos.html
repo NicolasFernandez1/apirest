@@ -1,15 +1,13 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'core/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet "> 
-    <link rel="stylesheet" href="{% static 'core/css/Stilos.css' %}">
-    <link rel="shortcur icon" href="{% static 'core/img/logo1.png' %}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>PUPPIESTORE</title>
+  <title>PUPPIESTORE</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'core/css/Stilos.css' %}">
+  <link rel="shortcur icon" href="{% static 'core/img/logo1.png' %}" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -50,25 +48,35 @@
       </ul>
     </div>
    
+
   </nav>
-  <br><br>
   
-  <div id="foto" class="p">
-    <img class="imgc" src="{% static 'core/img/identificadorhueso.jpg'%}" style="border-radius: 10px;"><br><br>
-    <h2>Identificador de hueso</h2>
-    <h4>Descripción: </h4>
-    <p>La identificación y registro de los perros y gatos es una de las estrategias principales para luchar <br>
-      contra el abandono e incrementar las devoluciones de aquellos animales que se han perdido, porque una <br>
-      parte de las mascotas que llegan a los refugios no corresponde a un abandono, sino a una pérdida.</p>
-    <p>Talla: S/M/L</p>
-    <p>Precio: $3.500 </p>
-    <a href="../home3.html"><br>
-      <button name="button" style="width: 10%;">Volver</button>
-  </a>&nbsp;
-    
-  </div>
-  <br>
   
+<br>
+<h1 class="titulo" >Consultar Compra!</h1>
+
+
+
+  
+   <center>
+  <fieldset>
+    <form method="POST" action="/consultarcompra-registro/">
+        {% csrf_token %}
+        <input type = "text" class = "form-control" name = "Numerotarjeta" id="Numerotarjeta" placeholder = "Ingrese su numero de tarjeta"/>
+        <br>
+        <div ALIGN="center">
+        <button id="btn-validar" type = "submit" class = "btn btn-primary" >Buscar</button>
+        <button type = "reset" class = "btn btn-primary" >Limpiar</button>
+        </div>
+    </form>
+</fieldset>
+</center>
+
+
+
+
+ <br><br>
+
 <!-- Footer -->
 <footer id="foter" class="text-center text-lg-start bg-light text-muted">
   <!-- Section: Social media -->
@@ -77,7 +85,7 @@
   >
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Nuestras redes sociales: &nbsp; <a href="#"><img width="30px" src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"> </a> &nbsp; &nbsp;
+      <span>Nuestras redes sociales: &nbsp; <a href="#"><img width="30px" class="pelicula" src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"> </a> &nbsp; &nbsp;
         <a href="#"><img width="30px" src="https://1000marcas.net/wp-content/uploads/2019/11/Twitter-logo-500x406.png" alt="Twitter"> </a> &nbsp; &nbsp;
         <a href="#"><img width="30px" src="https://1000marcas.net/wp-content/uploads/2019/11/Instagram-logo-500x500.png" alt="Instagram"> </a>
 
@@ -121,7 +129,7 @@
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Tienda Online Puppies.cl
-          </h6>Puppies.cl es una tienda online enfocada en productos para el bienestar animal, realizamos envíos a todo Chile.</p>
+          </h6>Puppies.cl es una tienda online enfocada en productos para el bienestar animal, realizamos envÃ­os a todo Chile.</p>
         </div>
         <!-- Grid column -->
 
@@ -163,7 +171,7 @@
             <a href="#!" class="text-reset">Excelente servicio al cliente.</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">satisfacción Garantizada</a>
+            <a href="#!" class="text-reset">satisfacciÃ³n Garantizada</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -190,11 +198,15 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    Puppies © 2022 Copyright: Made with  All Rights Reserved.<br>
+    Puppies Â© 2022 Copyright: Made with  All Rights Reserved.<br>
   </div>
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+
+
+
+
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
